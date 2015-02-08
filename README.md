@@ -62,33 +62,28 @@ See **strftime** (3) for a more control over the date format.
 * Download and extract the archive and put the HistLog script somewhere within your PATH. Run it once and viola!
   - git clone https://github.com/Jetchisel/HistLog
   - cd HistLog/
-  - cp -v HistLog /bin
+  - cp -v HistLog /bin (for system wide, for single user you can put it in ~/bin)
   - HistLog
   - tail -f ~/.HistLog
 
 ##
 * Every user that will call/run HistLog will have the **Files created** in this readme.
-* The script will run and will be called via cron every 30 seconds. ( at least on this side it does. :-) )
-* The ~/.HistLog file will grow faster because it logs everything everytime. Adjust the time in the cron entry.
+* The script will run and will be called via cron every Minute.
+* The ~/.HistLog file will grow faster because it logs everything every minute. Adjust the time in the cron entry.
 
 ## Cron entry
 
 This code contains the crontab entry.
 Remove the second entry should you choose not to run it every 30 seconds. (the line with sleep 30)
 ```shell
-   ArrayCrontabEntry=(
-   "* * * * * $BASH_SOURCE"
-   "* * * * * sleep 30; $BASH_SOURCE"
-   )
+TimeAndDate="* * * * *"
 ```
-Change only this entry,
+Change only this entry.
 ```shell
 * * * * *
 ```
+Don't foget to enclose it with quotes, just like the original code.
+
 see **crontab(5)**.
-
-Don't forget to use **double quotes** not single quotes, other wise **$BASH_SOURCE** will not be expanded.
-
-
 
 Happy logging!
