@@ -19,7 +19,7 @@ Goal of HistLog:
   - PROMPT_COMMAND
   - shopt -s histappend
 
-see ''help history''
+see '''help history'''
 
 ##
 * Change the value of the variables of HistLog according to your own hearts content.
@@ -40,6 +40,7 @@ is a bash4 feature but you can replace it with the (GNU) date utility, something
 $(date +'%h %d %Y %H:%M:%S')
 ```
 If your bash version is less than 4.
+
 See **strftime** (3) for a more control over the date format.
 
 ## Required external utilities
@@ -74,7 +75,6 @@ See **strftime** (3) for a more control over the date format.
 ## Cron entry
 
 This code contains the crontab entry.
-Remove the second entry should you choose not to run it every 30 seconds. (the line with sleep 30)
 ```shell
 TimeAndDate="* * * * *"
 ```
