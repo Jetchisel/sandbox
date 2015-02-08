@@ -77,7 +77,7 @@ This code contains the crontab entry.
 ```shell
 TimeAndDate="* * * * *"
 ```
-Change only this entry.
+Change only this part.
 ```shell
 * * * * *
 ```
