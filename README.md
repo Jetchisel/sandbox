@@ -77,12 +77,10 @@ This code contains the crontab entry.
 ```shell
 TimeAndDate="* * * * *"
 ```
-Change only this part.
+Change only this part.  see **crontab(5)**
 ```shell
 * * * * *
 ```
 Don't foget to enclose it with quotes, just like the original code.
-
-see **crontab(5)**.
 
 Happy logging!
