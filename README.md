@@ -56,14 +56,14 @@ See **strftime** (3) for a more control over the date format.
 ```shell
 ## A crontab entry that looks like this (of course with the absolute path.)
 * * * * * HistLog
-* * * * * sleep 30; HistLog
 ```
 ## Installation
 
 * Download and extract the archive and put the HistLog script somewhere within your PATH. Run it once and viola!
   - git clone https://github.com/Jetchisel/HistLog
   - cd HistLog/
-  - cp -v HistLog /bin (for system wide, for single user you can put it in ~/bin)
+  - cp -v HistLog /bin
+    * for single user you can put it in ~/bin
   - HistLog
   - tail -f ~/.HistLog
 
