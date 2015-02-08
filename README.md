@@ -68,7 +68,8 @@ See **strftime(3)** for a more control over the date format.
 ##
 * Every user that will call/run HistLog will have the **Files created** in this readme.
 * The script will run and will be called via cron every Minute.
-* The ~/.HistLog file will grow faster because it logs everything every minute. Adjust the time in the cron entry.
+* The ~/.HistLog file will grow faster because it logs everything every minute.
+* Adjust the time in the cron entry before executing it, should you choose a different time for running HistLog.
 
 ## Cron entry
 
