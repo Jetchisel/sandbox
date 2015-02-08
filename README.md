@@ -10,7 +10,7 @@ Goal of HistLog:
   - Avoid loosing bash_history
     save the history to an archive.
 
-## Notes: Read everything before using this script.
+## Note: Read everything before using this script.
 
 * Make sure to adjust your history limit in ~/.bashrc.
 * Change the value of the variables of HistLog according to your own hearts content.
@@ -54,8 +54,9 @@ See **strftime** (3) for a more control over the date format.
   - git clone https://github.com/Jetchisel/HistLog
   - cd HistLog/
   - cp -v HistLog /bin
+  - HistLog
 
-
+##
 * Every user that will call/run HistLog will have the "Files created" in this readme.
 * The script will run and will be called via cron every 30 seconds. ( at least on this side it does. :-) )
 * The ~/.HistLog file will grow faster because it logs everything everytime. Adjust the time in the cron entry.
