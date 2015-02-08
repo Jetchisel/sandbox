@@ -51,10 +51,10 @@ See **strftime** (3) for a more control over the date format.
 ## Installation
 
 * Download an extract the archive and put the HistLog script somewhere within your PATH. Run it once and viola!
-  * Something like this.
   - git clone https://github.com/Jetchisel/HistLog
   - cd HistLog/
   - cp -v HistLog /bin
+
 * Every user that will call/run HistLog will have the "Files created" in this readme.
 * The script will run and will be called via cron every 30 seconds. ( at least on this side it does. :-) )
 * The ~/.HistLog file will grow faster because it logs everything everytime. Adjust the time in the cron entry.
