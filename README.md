@@ -12,9 +12,18 @@ Goal of HistLog:
 
 ## Note: Read everything before using this script.
 
-* Make sure to adjust your history limit in ~/.bashrc.
+* Make sure to adjust your history limit in ~/.bashrc and (set or) understand the following history options:
+  - -[arc]
+  - HISTFILESIZE
+  - HISTSIZE
+  - PROMPT_COMMAND
+  - shopt -s histappend
+
+see ''help history''
+
+##
 * Change the value of the variables of HistLog according to your own hearts content.
-* By default this script will run every 30 seconds being called via cron. (vixie-cron)
+* By default this script will run every Minute being called via cron. (vixie-cron)
 * It is able to check and create a crontab entry (*ONLY* if it does not exists) for the user that is calling the script .
 * If bash_history is above 10,000 lines:
  - Lines from 1 to 5000 is going to be remove from bash_history
