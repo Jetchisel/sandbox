@@ -55,6 +55,7 @@ See **strftime** (3) for a more control over the date format.
   - cd HistLog/
   - cp -v HistLog /bin
 
+
 * Every user that will call/run HistLog will have the "Files created" in this readme.
 * The script will run and will be called via cron every 30 seconds. ( at least on this side it does. :-) )
 * The ~/.HistLog file will grow faster because it logs everything everytime. Adjust the time in the cron entry.
