@@ -1,92 +1,39 @@
-# HistLog - A bash script that archives and save ~/.bash_history
+# setx - Just another bash script than can be used for debugging another shell script.
 
-https://github.com/Jetchisel/HistLog
+https://github.com/Jetchisel/setx
 
-Copyright 2014-2015, Jetchisel
-Licensed under the GNU Affero General Public License, v3
+Copyright 2016 Jetchisel
 
-Goal of HistLog:
+A bash shell script that inserts set -x and a PS4 debug code
+or a trap to make the script execute line by line by using
+the return key. Shell script is  more verbose when the code
+is added in the script in question. This script  requires the  
+follwing  GNU utilities, ed(1) for editing the shell script and
+file(1)  for  testing  file type of the script in question and.
+grep for matching patterns against the debug codes.
 
-  - Avoid loosing bash_history
-    save the history to an archive.
 
-## Note: Read everything before using this script.
-
-* Make sure to adjust your history limit in ~/.bashrc and (set or) understand the following history options:
-  - -[arc]
-  - HISTFILESIZE
-  - HISTSIZE
-  - PROMPT_COMMAND
-  - shopt -s histappend
-
-see **help history**
-
-##
-* Change the value of the variables of HistLog according to your own hearts content.
-* By default this script will run every 30 seconds being called via cron. (vixie-cron)
-* It is able to check and create a crontab entry (*ONLY* if it does not exists) for the user that is calling the script .
-* If bash_history is above 10,000 lines:
- - Lines from 1 to 5000 is going to be remove from bash_history
- - Will be pasted at the end of bash_history.archive.
-
-## bash version required is 4 and up.
-
-The value of Date is a bash4 feature which is
-```shell
-$(printf "%(%h %d %Y %H:%M:%S)T" -1)
+## Usage:
 ```
-If your bash version is less than 4 you can replace it with the (GNU) date utility, something like
-```shell
-$(date +'%h %d %Y %H:%M:%S')
+setx [OPTION] [FILE
 ```
-See **strftime** (3) for a more control over the date format.
 
-## Required external utilities
-    ed
-    crontab
-    grep
-    wc
-
-## Files created
-- "$HOME/.HistLog"
-- "$HOME/.bash_history.archive" (*ONLY* if it does not exists.)
-
-```shell
-## A crontab entry that looks like this (of course with the absolute path.)
-* * * * * HistLog
-* * * * * sleep 30; HistLog
+## Options:
+``
+-s, --step     Make the execution of script line by line using a trap.
+-u, --undo     Undo or remove all the debug code in the script.
+-x, --xtrace   Add set -x and PS4 debug code below the shebang.
+-a, --about    A brief info about setx.
+-h, --help     Show this help.
 ```
-## Installation
 
-* Download and extract the archive and put the HistLog script somewhere within your PATH. Run it once and viola!
-  - git clone https://github.com/Jetchisel/HistLog
-  - cd HistLog/
-  - cp -v HistLog /bin
-    * for single user you can put it in ~/bin
-  - HistLog
-  - tail -f ~/.HistLog
+## TODO:
+Add option to insert debug codes in a specific line.
 
-##
-* Every user that will call/run HistLog will have the **Files created** in this readme.
-* The script will run and will be called via cron every 30 seconds. ( at least on this side it does. :-) )
-* The ~/.HistLog file will grow faster because it logs everything everytime. Adjust the time in the cron entry.
 
-## Cron entry
 
-This code contains the crontab entry.
-Remove the second entry should you choose not to run it every 30 seconds. (the line with sleep 30)
-```shell
-   ArrayCrontabEntry=(
-   "* * * * * $BASH_SOURCE"
-   "* * * * * sleep 30; $BASH_SOURCE"
-   )
-```
-Change only this entry,
-```shell
-* * * * *
-```
-see **crontab(5)**.
+For more info about debugging please have a look at the following site.
 
-Don't forget to use **double quotes** not single quotes, other wise **$BASH_SOURCE** will not be expanded.
+https://www.shellcheck.net
 
-Happy logging!
+http://mywiki.wooledge.org/BashGuide/Practices#Debugging
