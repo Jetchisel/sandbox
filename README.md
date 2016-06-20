@@ -19,7 +19,7 @@ setx [OPTION] [FILE
 ```
 
 ## Options:
-``
+```
 -s, --step     Make the execution of script line by line using a trap.
 -u, --undo     Undo or remove all the debug code in the script.
 -x, --xtrace   Add set -x and PS4 debug code below the shebang.
