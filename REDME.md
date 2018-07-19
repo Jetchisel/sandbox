@@ -124,6 +124,7 @@ chmod -Rv g+rw /path/to/new/directory/
 
 
 If you are more adventurous you can add the root user (not recommended but doable).
+
 Try a network share for the database as well :).
 
 ----
@@ -153,10 +154,12 @@ sqlite3 ~/.bash_history.sqlite "delete from history where cmd = 'sdb' or cmd lik
 ### Security
 
 If security is an issue then you are at the wrong place!
+
 This is for recording bash history for a user or a group of trusted users.
+
 If you're allergic to the builtin command **eval** you can just ignore the **-E** option.
 ---
-###: Trouble shooting
+### Trouble shooting
 
 Error where it says something about **could not write to database**
 Check the permission of the **directory** and the database **file**
