@@ -169,8 +169,8 @@ Error where it says something about **could not write to database**
 Check the permission of the **directory** and the database **file**
 
 The value of the **COMMAND** column is **HISTTIMEFORMAT="%s "**
-Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
 
+Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
 
 Error where it says database or table is missing.
 
