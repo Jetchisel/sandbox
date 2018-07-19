@@ -52,6 +52,7 @@ fi
 ```
 so during interactive session sdb is sourced.
 
+
 ----
 ### Example of sdb commands.
 
@@ -92,8 +93,9 @@ sdb -E 50
 Try the help option for more info about how to use sdb.
 ```
 sdb --help
-```
 
+```
+---
 ### Multi user
 For multi user option ala central database for users some changes needs to be done.
 
@@ -158,17 +160,22 @@ If security is an issue then you are at the wrong place!
 This is for recording bash history for a user or a group of trusted users.
 
 If you're allergic to the builtin command **eval** you can just ignore the **-E** option.
+
 ---
 ### Trouble shooting
 
 Error where it says something about **could not write to database**
+
 Check the permission of the **directory** and the database **file**
 
 The value of the **COMMAND** column is **HISTTIMEFORMAT="%s "**
 Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
 
+
 Error where it says database or table is missing.
+
 Check the database if it is still in place.
+
 Check if the table has been removed.
 
 ----
