@@ -173,17 +173,17 @@ If you're allergic to the builtin command **eval** you can just ignore the **-E*
 
 * Error where it says something about **could not write to database**
 
-Check the permission of the **directory** and the database **file**
+   Check the permission of the **directory** and the database **file**
 
 * The value of the **COMMAND** column is **HISTTIMEFORMAT="%s "**
 
-Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
+   Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
 
 * Error where it says database or table is missing.
 
-Check the database if it is still in place.
+   Check the database if it is still in place.
 
-Check if the table has been removed.
+   Check if the table has been removed.
 
 ----
 ## Author
