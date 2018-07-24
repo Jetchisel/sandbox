@@ -166,32 +166,32 @@ but... but... sql injection...
 
 * Error where it says something about **could not write to database**
 
-    Check the permission of the **directory** and the database **file**
+  .  Check the permission of the **directory** and the database **file**
 
 * The value of the **COMMAND** column is **HISTTIMEFORMAT="%s "**
 
-    Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
+  .  Set the time format **exactly** to **HISTTIMEFORMAT="%s "**
 
 * Error where it says database or table is missing.
 
-    Check the database if it is still in place.
+  .  Check the database if it is still in place.
 
-    Check if the table has been removed.
+  .  Check if the table has been removed.
 
 * The exit_status column  value is **777**
 
-    Check if the first value of "$PROMP_COMMAND" is still **__sdb_prompt**
+  .  Check if the first value of "$PROMP_COMMAND" is still **__sdb_prompt**
 
-    Check for the string **Last_Status** in the sdb script.  It should be just below the
-    line where the __sdb_prompt function is.
+  .  Check for the string **Last_Status** in the sdb script.  It should be just below the
+    line where the **__sdb_prompt** function is.
 
-  To fix the column  Replace the 777 exit status with something else. (Assuming the default location of the database)
+To fix the column  Replace the 777 exit status with something else. (Assuming the default location of the database)
 
 ```
   sqlite3 ~/.bash_history.sqlite "UPDATE history SET exit_status = 'something' where id = 'anotherthing';"
 ```
 
-  Change the value of something which is the **777** and anotherthing which the ID or first column to a digit.
+  Change the value of something which is the **777** and anotherthing which the **ID** or the first column into a digit.
 
 ----
 ## Author
