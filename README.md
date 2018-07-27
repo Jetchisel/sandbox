@@ -26,18 +26,16 @@ HISTTIMEFORMAT="%s "
 
 Bash version 4+ and the following GNU tools. Most of them are included in the GNU coreutils.
 
-
-* sqlite3
-* mktemp
-* uname
-* date
 * dd
+* rm
+* vim
+* tput
+* date
+* uname
+* mktemp
 * base64
 * whoami
-* rm
-* tput
-* vim
-
+* sqlite3
 
 ----
 ### Installing
@@ -178,27 +176,27 @@ but... but... sql injection...
 ---
 ### Trouble shooting
 
-* Error where it says something about **could not write to database**
+Error where it says something about **could not write to database**
 
   *  Check the permission of the **directory** and the database **file**
 
-* The value of the **COMMAND** column is **HISTTIMEFORMAT="%s "**
+The value of the **COMMAND** column is **HISTTIMEFORMAT="%s "**
 
   *  Set the time format **literally** to **HISTTIMEFORMAT="%s "** in your **~/.bashrc** file
 
-* Error where it says database or table is missing.
+Error where it says database or table is missing.
 
   *  Check the database if it is still in place.
 
   *  Check if the table has been removed.
 
-* The command **exit** does not exit the current shell session.
+The command **exit** does not exit the current shell session.
 
   *  Invoke the builtin by:  **builtin exit**
 
   *  Set the time format **literally** to **HISTTIMEFORMAT="%s "** in your **~/.bashrc** file
 
-* The exit_status column  value is **777**
+The exit_status column  value is **777**
 
   *  Check if the first value of **"$PROMPT_COMMAND"** is still **__sdb_prompt**
 
