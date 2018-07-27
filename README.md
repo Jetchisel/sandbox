@@ -1,4 +1,3 @@
-
 # sdb
 
 A bash shell function that records bash_history in a sqlite3 database.
@@ -20,7 +19,7 @@ Make sure that access to the command history is **ENABLED** in your ~/.bashrc fi
 set -o history
 ```
 
-Bash history time format **MUST** be in epoch.
+Bash history time format **MUST** be in **epoch**.
 ```
 HISTTIMEFORMAT="%s "
 ```
@@ -137,7 +136,7 @@ Try a network share for the database as well :).
 ### Sqlite Commands.
 An example of how to query the database assuming the default name and location from the script.
 ```
-sqlite3 ~/.bash_history.sqlite '.mode column' '.header on' '.width 6 15 7 20 50 50' 'select id,epoch,exit_status as status,TRIM(user_hosts) as user_hosts,pwd,cmd from history DESC limit 20;' | less -Ss
+sqlite3 ~/.bash_history.sqlite '.mode column' '.header on' '.width 6 15 7 20 50 50' 'select id,epoch,exit_status as status,user_hosts,pwd,cmd from history DESC limit 20;' | less -Ss
 ```
 
 An example of how to update/set/edit the epoch time with the ID that has a value of 129.
