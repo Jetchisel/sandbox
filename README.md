@@ -27,7 +27,16 @@ HISTTIMEFORMAT="%s "
 Bash version 4+ and the following GNU tools. Most of them are included in the GNU coreutils.
 
 ```
-sqlite3, mktemp, uname, date, dd, base64, whoami, rm, tput, vim
+* sqlite3
+* mktemp
+* uname
+* date
+* dd
+* base64
+* whoami
+* rm
+* tput
+* vim
 ```
 
 ----
