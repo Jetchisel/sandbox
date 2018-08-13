@@ -2,7 +2,7 @@
 #: Title           : sdb                                                                       #
 #: Sypnosis        : sdb [OPTIONS]... [QUERY]...                                               #
 #: Date Created    : Sat 25 Nov 2017 10:10:47 AM +08  /  Sat Nov 25 02:10:47 UTC 2017          #
-#: Last Edit       : Mon 13 Aug 2018 13:05:49 PM +08  /  Mon Aug 13 05:05:49 UTC 2018          #
+#: Last Edit       : Mon 13 Aug 2018 16:26:59 PM +08  /  Mon Aug 13 08:26:59 UTC 2018          #
 #: License         : MIT                                                                       #
 #: Version         : 3.0.1                                                                     #
 #: Maintainer      : Jason V. Ferrer '<jetchisel@opensuse.org>'                                #
@@ -899,8 +899,8 @@ if "${SDB_HISTORY:-true}"; then   ##: Kind of session ID, allows to see only com
        if ((__sdb_edit)); then ##: WARNING ZE EVAL!! :)
          builtin trap '> "/dev/fd/$tempfile"' return
          builtin trap 'builtin exit 1' 1 2 3 15
-					builtin exec {tempfile}<<-EOF
-					EOF
+		builtin exec {tempfile}<<-EOF
+		EOF
          builtin printf '%s\n' "${execute_var0%"|"*}" > "/dev/fd/$tempfile"
          "${EDITOR:-vim}" "/dev/fd/$tempfile"
          while IFS= builtin read -u9 -r __sdb_evalcommands; do
@@ -1063,8 +1063,8 @@ if "${SDB_HISTORY:-true}"; then   ##: Kind of session ID, allows to see only com
      if ((!offpager)); then
        builtin trap '> "/dev/fd/$tempfile"' return
        builtin trap 'builtin exit 1' 1 2 3 15
-				builtin exec {tempfile}<<-EOF
-				EOF
+		builtin exec {tempfile}<<-EOF
+		EOF
        __sdb__main_funct__ > "/dev/fd/$tempfile" 2>&1 || builtin return
        if [[ $PAGER  = less ]]; then  ##: If pager is less which is the default for openSUSE
          builtin command -p "$PAGER" -Ss "/dev/fd/$tempfile" || builtin return  ##: invoke it with the builitn command -p and add the -Ss flag
