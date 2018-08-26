@@ -90,7 +90,7 @@ fi
 ```
 so during interactive session sdb is sourced.
 
-
+----
 ### How does it work
 
 Everything is in the past tense. Because the commands has already been executed.
@@ -101,9 +101,9 @@ Commands such as **exec bash** or **source ~/.bashrc** and the likes cannot be
 captured with just **history 1** because all of the shellrc files is being
 re-read/sourced.
 
-With the limited info that is being shown in the **history** command, there is
+With the limited info that is being shown in the **history 2** command, there is
 not much to go on, so we resort to some work arounds and hacks just to fill in
-some info in the sqlite3 tables.
+some info in the sqlite3 tables (history and directories).
 
 ----
 ### Example of sdb commands.
@@ -251,6 +251,12 @@ To fix the column  Replace the 777 exit status with something else. (Assuming th
 
 Change the value of **something** which is the **777** and **anotherthing** which is the **ID** or the first column into a digit.
 
+----
+### Miscellaneous
+
+Add a new function that can navigate through the previous directories by parsing the directories table created by sdb.
+
+* **sdc** (https://github.com/Jetchisel/sdc)
 ----
 ## Author
 
