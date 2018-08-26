@@ -6,17 +6,41 @@ Recorded commands can be queried and executed.
 ----
 The following are shown in the query.
 ```
-+-------+--------+---------------------+----------------------+--------+----------------+----------------+
-|  ID   | COUNT  |      DATE/TIME      |      USER@HOST       | STATUS |   DIRECTORY    |▶   COMMAND     |
-+-------+--------+---------------------+----------------------+--------+----------------+----------------+
++------------+--------+---------------------+----------------------+--------+---------+----------------+----------------+
+|     ID     | COUNT  |      DATE/TIME      |      USER@HOST       | STATUS |   TTY   |   DIRECTORY    |▶    COMMAND    |
++------------+--------+---------------------+----------------------+--------+---------+----------------+----------------+
 ```
 
 ----
 ### Prerequisites
 
-Make sure that access to the command history is **ENABLED** in your ~/.bashrc file
+Make sure that access to the command history is **ENABLED**.
+
+
+First check the output of
+
+```
+set -o | grep history
+```
+
+The output should show **on**
+
+```
+history         on
+```
+
+If it is not then set it to **on** in your **~/.bashrc** file.
+
 ```
 set -o history
+```
+
+In some cases you need to put a test if it is enabled already, something like.
+
+```
+if [[ "$(set -o | awk '$1 == "history" {print $2}')" = off ]]; then
+  set -o history
+fi
 ```
 
 Bash history time format **MUST** be in **epoch**.
@@ -32,10 +56,12 @@ Bash version 4+ and the following GNU tools. Most of them are included in the GN
 * tput
 * date
 * uname
+* less
 * mktemp
 * base64
 * whoami
 * sqlite3
+* realpath
 
 ----
 ### Installing
@@ -65,6 +91,20 @@ fi
 so during interactive session sdb is sourced.
 
 
+### How does it work
+
+Everything is in the past tense. Because the commands has already been executed.
+The output of history is being parsed, **history 2** to be more exact/precise.
+**history 1** for most of the commands and **history 2** for some commands.
+
+Commands such as **exec bash** or **source ~/.bashrc** and the likes cannot be
+captured with just **history 1** because all of the shellrc files is being
+re-read/sourced.
+
+With the limited info that is being shown in the **history** command, there is
+not much to go on, so we resort to some work arounds and hacks just to fill in
+some info in the sqlite3 tables.
+
 ----
 ### Example of sdb commands.
 
@@ -74,7 +114,7 @@ sdb -a
 ```
 Show commands with a **zero exit status**.
 ```
-sdb -z
+sdb -n 0
 ```
 
 Show only **10** recent commands.
@@ -143,7 +183,7 @@ Try a network share for the database as well :).
 ### Sqlite Commands.
 An example of how to query the database assuming the default name and location from the script.
 ```
-sqlite3 ~/.bash_history.sqlite '.mode column' '.header on' '.width 6 15 7 20 50 50' 'select id,epoch,exit_status as status,user_hosts,pwd,cmd from history DESC limit 20;' | less -Ss
+sqlite3 ~/.bash_history.sqlite '.mode column' '.header on' '.width 6 15 7 9 20 50 50' 'select id,epoch,exit_status as status,tty,user_hosts,pwd,cmd from history DESC limit 20;' | less -Ss
 ```
 
 An example of how to update/set/edit the epoch time with the ID that has a value of 129.
@@ -169,7 +209,7 @@ If security is an issue then you are at the wrong place!
 
 This is for recording bash history for a user or a group of trusted users.
 
-If the builtin command **eval** is not for you, just ignore the **-E** option.
+If the builtin command **eval** is not for you, just ignore the **-E** option, choice number **4**.
 
 but... but... sql injection...
 
@@ -227,5 +267,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * The author of dbhist.sh Denis Gladkikh, - [Denis](https://www.outcoldman.com/en/archive/2017/07/19/dbhist)
 * D.J. Mills, - [e36freak](https://github.com/e36freak)
 * Others that was not mentioned :)
-
-
