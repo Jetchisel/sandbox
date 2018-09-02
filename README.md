@@ -213,7 +213,9 @@ This is for recording bash history for a user or a group of trusted users.
 
 If the builtin command **eval** is not for you, just ignore the **-E** option, choice number **1** and **4**.
 
-but... but... sql injection...  well to its defense see what google has to say about sqlite.
+but... but... sql injection...
+
+well to its defense see what google has to say about sqlite.
 
 ```
 SQL is query language. Sqlite is embeddable relational database management system. Unlike other databases
