@@ -223,7 +223,7 @@ SQL is query language. Sqlite is embeddable relational database management syste
 databases, like SQL Server and MySQL which are server-based.
 ```
 
-Is it secure?
+#### Is sqlite secure?
 ```
 SQLite database is used for storing data on mobile devices. It's important to secure your data to avoid
 rooting and jailbreaking. SQLite database has become the first choice for storing data on mobile devices.
